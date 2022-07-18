@@ -3,6 +3,7 @@ let data = require("./data.json")
 
 
 let server = express();
+let port = process.env.PORT || 4000;
 
 server.get("/movies",(req,res) => {
     res.json(data);
@@ -29,4 +30,6 @@ server.get("/genre",(req,res) => {
 })
 
 
-server.listen(4000);
+server.listen(port,() =>{
+    console.log(`listing on port number ${port}`);
+});
